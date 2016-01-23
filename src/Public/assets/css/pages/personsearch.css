@@ -1,0 +1,79 @@
+.search-type .btn.btn-default {
+  background-color: #e7e7e9;
+  border-color: #b1b1b1;
+  font-size: 0.85em;
+/*  padding: 8px 6px;*/
+	padding-left:6px;
+	padding-right:6px;
+  font-weight: 600;
+  width: 93px;
+}
+.search-type .btn.btn-default.active {
+  background-color: #ffcb05;
+  	-webkit-box-shadow: inset 0px 4px 119px -26px rgba(72,72,72,1);
+-moz-box-shadow: inset 0px 4px 119px -26px rgba(72,72,72,1);
+box-shadow: inset 0px 4px 119px -26px rgba(72,72,72,1);
+}
+.row.search-filters {
+  background-color: #fafafb;
+  padding-top: 20px;
+}
+.search-filters label.fieldlabel {
+  font-size: 10px;
+  font-weight: bold;
+  margin-right: 17px;
+}
+.search-filters label.fieldlabelminor {
+  font-size: 11px;
+  font-weight: 600;
+  margin-right: 3px;
+}
+.skills-field{
+  width: 70%;
+  display: inline;
+  height: 30px;
+  margin-top: -5px;
+}
+.salary-range{
+  width: 70%;
+  display: inline;
+  position: absolute;
+  margin-top: -20px;
+}
+.search-radius{
+  display: inline;
+  width: 100px;
+  height: 30px;
+  padding-top: 3px;
+}
+.search-location{
+  width: 160px;
+  height: 30px;
+  display: inline;
+}
+.padding-top-6{
+  padding-top: 6px;
+}
+.advanced-button{
+  border: #7170b1 2px solid;
+  color: #7170b1;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.search-results{
+  margin-top: 11px;
+}
+.search-results thead{
+  background-color: #dddddf;
+}
+.search-results th {
+  border: 1px #FFF solid !important;
+    text-align: center;
+
+}
+.search-results td{
+  text-align: center;
+}
