@@ -3,6 +3,16 @@
     <div class="page-sidebar-actions navbar-collapse collapse">
         <!-- BEGIN ACTION PANEL MENU -->
         <ul class="page-sidebar-menu-actions">
+            @forelse ($actions as $action)            
+                <li>
+                    <a {{ $action['action_link'] }} style="cursor: pointer;">
+                        <i class="{{ $action['action_icon'] }}"></i>
+                        <span>{{ $action['action_name'] }}</span>	
+                    </a>
+                </li>
+            @empty
+
+            @endforelse
         </ul>
         <!-- END SIDEBAR MENU -->
     </div>

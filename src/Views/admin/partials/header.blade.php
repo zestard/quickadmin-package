@@ -1,40 +1,29 @@
-<! DOCTYPE html >
-<html lang="en">
+    <!DOCTYPE html>
+    <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+    <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+    <!--[if !IE]><!-->
+    <html lang="en" class="no-js">
+        <!--<![endif]-->
+        <!-- BEGIN HEAD -->
+        <head>
+            <meta charset="utf-8"/>
+            <title>Dashboard | Rubicon ERP System</title>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+            <meta content="" name="description"/>
+            <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+            <meta content="" name="author"/>
+            <meta name="MobileOptimized" content="320">
 
-<head>
-    <meta charset="utf-8">
-    <title>
-        QuickAdmin
-    </title>
+            @include('admin.includes.common_css')
+            @include('admin.includes.common_js')
 
-    <meta http-equiv="X-UA-Compatible"
-          content="IE=edge">
-    <meta content="width=device-width, initial-scale=1.0"
-          name="viewport"/>
-    <meta http-equiv="Content-type"
-          content="text/html; charset=utf-8">
-
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all"
-          rel="stylesheet"
-          type="text/css"/>
-    <link rel="stylesheet"
-          href="{{ url('quickadmin/css') }}/font-awesome.min.css"/>
-    <link rel="stylesheet"
-          href="{{ url('quickadmin/css') }}/bootstrap.min.css"/>
-    <link rel="stylesheet"
-          href="{{ url('quickadmin/css') }}/components.css"/>
-    <link rel="stylesheet"
-          href="{{ url('quickadmin/css') }}/quickadmin-layout.css"/>
-    <link rel="stylesheet"
-          href="{{ url('quickadmin/css') }}/quickadmin-theme-default.css"/>
-    <link rel="stylesheet"
-          href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
-    <link rel="stylesheet"
-          href="//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css"/>
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/jquery-ui-timepicker-addon.min.css"/>
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.standalone.min.css"/>
-</head>
-
-<body class="page-header-fixed">
+            <script>
+                var public_url = "<?php echo url(''); ?>";  
+                //$('.sidebar-toggler').click();                
+            </script>
+        </head>
+        <!-- END HEAD -->
+        <!-- BEGIN BODY -->
+        <!-- <body class="page-header-fixed page-sidebar-closed page-actions-none"> -->
+        <body class="page-header-fixed page-sidebar-fixed page-actions-none">
