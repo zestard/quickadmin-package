@@ -38,5 +38,3 @@
 
 @yield('javascript')
 @include('admin.partials.footer')
-
-

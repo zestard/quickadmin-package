@@ -6,14 +6,10 @@
     <!-- DOC: for circle icon style menu apply page-sidebar-menu-circle-icons class right after sidebar-toggler-wrapper -->
     <ul class="page-sidebar-menu">
       <li class="sidebar-toggler-wrapper"> 
-        <!-- BEGIN SIDEBAR TOGGLER BUTTON --> 
         <!-- Small modal -->
-        
         <button type="button" class="sidebar-toggler navbarleftbt"> </button>
-        
-        <!--                <div class="sidebar-toggler"></div>-->
+        <!--<div class="sidebar-toggler"></div>-->
         <div class="clearfix"></div>
-        <!-- BEGIN SIDEBAR TOGGLER BUTTON --> 
       </li>
       <li class="sidebar-search-wrapper">
         <form class="search-form" role="form" action="index.html" method="get">
@@ -23,30 +19,35 @@
         </form>
       </li>
         @if(Auth::user()->role_id == config('quickadmin.defaultRole'))
-            <li @if(Request::path() == config('quickadmin.route').'/menu') class="active" @endif>
+            <!-- <li @if(Request::path() == config('quickadmin.route').'/menu') class="active" @endif>
                 <a href="{{ url(config('quickadmin.route').'/menu') }}">
                     <i class="fa fa-list"></i>
                     <span class="title">Menu</span>
                 </a>
-            </li>
+            </li> -->
+
             <li @if(Request::path() == 'users') class="active" @endif>
-                <a href="{{ url('users') }}">
-                    <i class="fa fa-users"></i>
-                    <span class="title">Users</span>
-                </a>
+              <a href="#"> <i class="icon-users"></i> <span class="title">User</span> <span class="arrow "></span> </a>
+              <ul class="sub-menu">
+                <li> <a href="{{ url('users') }}"> List of User </a> </li>
+                <li> <a href="{{ url('users/create') }}"> Add User </a> </li>
+              </ul>
             </li>
+
             <li @if(Request::path() == 'roles') class="active" @endif>
-                <a href="{{ url('roles') }}">
-                    <i class="fa fa-users"></i>
-                    <span class="title">Roles</span>
-                </a>
+              <a href="#"> <i class="fa fa-users"></i> <span class="title">Role</span> <span class="arrow "></span> </a>
+              <ul class="sub-menu">
+                <li> <a href="{{ url('roles') }}"> List of Roles </a> </li>
+                <li> <a href="{{ url('roles/create') }}"> Add Role </a> </li>
+              </ul>
             </li>
-            <li @if(Request::path() == config('quickadmin.route').'/actions') class="active" @endif>
+
+            <!-- <li @if(Request::path() == config('quickadmin.route').'/actions') class="active" @endif>
                 <a href="{{ url(config('quickadmin.route').'/actions') }}">
                     <i class="fa fa-users"></i>
                     <span class="title">User actions</span>
                 </a>
-            </li>
+            </li> -->
         @endif
         @foreach($menus as $menu)
             @if($menu->menu_type != 2 && is_null($menu->parent_id))
@@ -85,12 +86,6 @@
                 @endif
             @endif
         @endforeach
-        <li>
-            <a href="{{ url('logout') }}">
-                <i class="fa fa-sign-out fa-fw"></i>
-                <span class="title">Logout</span>
-            </a>
-        </li>
     </ul>
     <!-- END SIDEBAR MENU --> 
   </div>
@@ -140,23 +135,26 @@
   $(document).ready(function(){
     $('.sidebar-toggler').on('click',function(event){
       event.preventDefault();
-      if($('body').hasClass('page-sidebar-hover-on')){
-          $('body').removeClass('page-sidebar-hover-on');
-          $('body').addClass('page-sidebar-closed');
-          $('body').css('padding-right','15px');
-          $('.page-sidebar').css('width','40px');  
+      if($('body').hasClass('page-sidebar-hover-on'))
+      {
+        $('body').removeClass('page-sidebar-hover-on');
+        $('body').addClass('page-sidebar-closed');
+        $('body').css('padding-right','15px');
+        $('.page-sidebar').css('width','40px');  
       }
-      else if($('body').hasClass('page-sidebar-closed')){
-          $('body').removeClass('page-sidebar-closed modal-open');
-          $('body').removeClass('page-sidebar-hover-on'); 
-          $('body').css('padding-right','0px');
-          $('.page-sidebar').css('width','215px');
+      else if($('body').hasClass('page-sidebar-closed'))
+      {
+        $('body').removeClass('page-sidebar-closed modal-open');
+        $('body').removeClass('page-sidebar-hover-on'); 
+        $('body').css('padding-right','0px');
+        $('.page-sidebar').css('width','215px');
       }
-      else {
-          $('body').removeClass('page-sidebar-hover-on');
-          $('body').addClass('page-sidebar-closed');
-          $('body').css('padding-right','15px');
-          $('.page-sidebar').css('width','40px');
+      else
+      {
+        $('body').removeClass('page-sidebar-hover-on');
+        $('body').addClass('page-sidebar-closed');
+        $('body').css('padding-right','15px');
+        $('.page-sidebar').css('width','40px');
       }          
     });
     $('#fa-step-forward').on('click',function(){
