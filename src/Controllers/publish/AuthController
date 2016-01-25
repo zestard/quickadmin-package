@@ -32,7 +32,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->redirectAfterLogout = config('quickadmin.homeRoute');
+        //$this->redirectAfterLogout = config('quickadmin.homeRoute');
         $this->middleware('guest', ['except' => 'getLogout']);
     }
 
@@ -47,6 +47,8 @@ class AuthController extends Controller
     {
         return Validator::make($data, [
             'name'     => 'required|max:255',
+            'first_name' => 'required|min:3|max:50',
+            'last_name' => 'required|min:3|max:50',
             'email'    => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
         ]);
@@ -61,10 +63,23 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+
+        /*
         return User::create([
             'name'     => $data['name'],
             'email'    => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+        */
+
+        $activation_code = str_random(60) . $data['email'];
+        $user = new User;
+        $user->name = $data['name'];
+        $user->first_name = $data['first_name'];
+        $user->last_name = $data['last_name'];
+        $user->email = $data['email'];
+        $user->password = bcrypt($data['password']);
+        $user->activation_code = $activation_code;
+
     }
 }
