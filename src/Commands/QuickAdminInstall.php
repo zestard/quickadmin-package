@@ -55,8 +55,6 @@ class QuickAdminInstall extends Command
      */
     public function copyInitial()
     {
-        copy(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'Migrations' . DIRECTORY_SEPARATOR . '2016_01_25_063913_alter_users_table_remove_name_add_first_name_last_name',
-            database_path('migrations' . DIRECTORY_SEPARATOR . '2016_01_25_063913_alter_users_table_remove_name_add_first_name_last_name.php'));
         copy(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'Migrations' . DIRECTORY_SEPARATOR . '2015_10_10_000000_create_roles_table',
             database_path('migrations' . DIRECTORY_SEPARATOR . '2015_10_10_000000_create_roles_table.php'));
         copy(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'Migrations' . DIRECTORY_SEPARATOR . '2015_10_10_000000_update_users_table',
@@ -65,6 +63,8 @@ class QuickAdminInstall extends Command
             database_path('migrations' . DIRECTORY_SEPARATOR . '2015_10_10_000000_create_menus_table.php'));
         copy(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'Migrations' . DIRECTORY_SEPARATOR . '2015_12_11_000000_create_users_logs_table',
             database_path('migrations' . DIRECTORY_SEPARATOR . '2015_12_11_000000_create_users_logs_table.php'));
+        copy(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'Migrations' . DIRECTORY_SEPARATOR . '2016_01_25_063913_alter_users_table_remove_name_add_first_name_last_name',
+            database_path('migrations' . DIRECTORY_SEPARATOR . '2016_01_25_063913_alter_users_table_remove_name_add_first_name_last_name.php'));
         copy(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'Models' . DIRECTORY_SEPARATOR . 'publish' . DIRECTORY_SEPARATOR . 'User',
             app_path('User.php'));
         $this->info('Migrations were transferred successfully');
@@ -89,8 +89,6 @@ class QuickAdminInstall extends Command
     public function createUser()
     {
         $data['name']     = $this->ask('Administrator name');
-        $data['first_name']     = $this->ask('Administrator First Name');
-        $data['last_name']     = $this->ask('Administrator Last Name');
         $data['email']    = $this->ask('Administrator email');
         $data['password'] = bcrypt($this->secret('Administrator password'));
         $data['role_id']  = 1;
