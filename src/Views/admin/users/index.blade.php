@@ -9,6 +9,17 @@
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/plugins/datatables/extensions/ColReorder/css/dataTables.colReorder.min.css') }}"/>
 <!-- END PAGE LEVEL STYLES --> 
 
+@section('javascript')
+
+  <!-- BEGIN PAGE LEVEL PLUGINS --> 
+  <script src="{{ URL::asset('assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}" type="text/javascript"></script> 
+  <script src="{{ URL::asset('assets/plugins/ion.rangeslider/js/ion-rangeSlider/ion.rangeSlider.min.js') }}"></script> 
+  <script type="text/javascript" src="{{ URL::asset('assets/scripts/all_checked_validations.js') }}"></script> 
+  <!-- END PAGE LEVEL PLUGINS -->
+
+@endsection
+
+
 @section('content')
 
     @if (session('status'))

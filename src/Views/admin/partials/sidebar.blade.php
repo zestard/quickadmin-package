@@ -4,15 +4,10 @@
   <div class="page-sidebar navbar-collapse collapse"> 
     <!-- BEGIN SIDEBAR MENU --> 
     <!-- DOC: for circle icon style menu apply page-sidebar-menu-circle-icons class right after sidebar-toggler-wrapper -->
-
-        <ul class="page-sidebar-menu">
+    <ul class="page-sidebar-menu">
       <li class="sidebar-toggler-wrapper"> 
         <!-- BEGIN SIDEBAR TOGGLER BUTTON --> 
-        <!-- Small modal -->
-        
         <button type="button" class="sidebar-toggler navbarleftbt"> </button>
-        
-        <!--                <div class="sidebar-toggler"></div>-->
         <div class="clearfix"></div>
         <!-- BEGIN SIDEBAR TOGGLER BUTTON --> 
       </li>
@@ -23,7 +18,7 @@
           </div>
         </form>
       </li>
-      <li class="start"> <a href="<?php echo url('/home'); ?>"> <i class="icon-home"></i> <span class="title">Dashboard</span> <span class="selected"></span> </a> </li>
+      <li class="start @if(Request::path() == 'admin') active open @endif"> <a href="<?php echo url('/home'); ?>"> <i class="icon-home"></i> <span class="title">Dashboard</span> <span class="selected"></span> </a> </li>
       <li > <a href="<?php echo url('/calendar'); ?>"> <i class="icon-calendar"></i> <span class="title">Calendar</span> </a> </li>
       <li > <a href=""> <i class="fa fa-comment-o"></i> <span class="title">Message</span> <span class="arrow "></span> </a>
         <ul class="sub-menu">
@@ -79,46 +74,41 @@
         <ul class="sub-menu">
           <li> <a href="<?php echo url('/tools/highlighter'); ?>"> Highlighter</a> </li>
           <li> <a href="<?php echo url('/tools/parsing_response'); ?>"> Parsing Response</a> </li>
+        </ul>
+      </li>
+      <li > <a href="#"> <i class="icon-bar-chart"></i> <span class="title">Reports</span> <span class="arrow "></span> </a>
+        <ul class="sub-menu">
+          <li> <a href="<?php echo url('/reports/crm_report'); ?>"> CRM Report</a> </li>
+          <li> <a href="<?php echo url('/reports/analytics'); ?>"> Analytics</a> </li>
           <li>
           </ul>
         </li>
-        <li > <a href="#"> <i class="icon-bar-chart"></i> <span class="title">Reports</span> <span class="arrow "></span> </a>
+        <!-- <li>
+          <a href="<?php echo url('/cms'); ?>">
+              <i class="icon-list"></i>
+              <span class="title">CMS</span>
+              <span class="arrow "></span>
+          </a>
+        </li> -->
+        <li> <a href="#"> <i class="icon-pin"></i> <span class="title">Saved Searches</span> </a> </li>
+        <li> <a href="#"> <i class="icon-wrench"></i> <span class="title">Settings</span> <span class="arrow "></span> </a>
           <ul class="sub-menu">
-            <li> <a href="<?php echo url('/reports/crm_report'); ?>"> CRM Report</a> </li>
-            <li> <a href="<?php echo url('/reports/analytics'); ?>"> Analytics</a> </li>
-            <li>
-            </ul>
-          </li>
-          <!-- <li>
-            <a href="<?php echo url('/cms'); ?>">
-                <i class="icon-list"></i>
-                <span class="title">CMS</span>
-                <span class="arrow "></span>
-            </a>
-          </li> -->
-          <li> <a href="#"> <i class="icon-pin"></i> <span class="title">Saved Searches</span> </a> </li>
-          <li> <a href="#"> <i class="icon-wrench"></i> <span class="title">Settings</span> <span class="arrow "></span> </a>
-            <ul class="sub-menu">
-              <li> <a href="<?php echo url('/system_settings/index'); ?>"> System Settings </a> </li>
-            </ul>
-          </li>
-          <li class="last"> <a href="#"> <i class="glyphicon glyphicon-bell"></i> <span class="title">PopUp</span> <span class="arrow "></span> </a>
-            <ul class="sub-menu">
-              <li> <a href="#" data-toggle="modal" data-target=".bs-example-modal-sm">Alert 1 </a> </li>
-              <li> <a href="#" data-toggle="modal" data-target=".alert2">Alert 2 </a> </li>
-            </ul>
-          </li>
-<!--          <li > <a href="#"> <i class="icon-bar-chart"></i> <span class="title">Data Parsing</span> <span class="arrow "></span> </a>
+            <li> <a href="<?php echo url('/system_settings/index'); ?>"> System Settings </a> </li>
+          </ul>
+        </li>
+        <li class="last"> <a href="#"> <i class="glyphicon glyphicon-bell"></i> <span class="title">PopUp</span> <span class="arrow "></span> </a>
           <ul class="sub-menu">
-            <li> <a href="<?php echo url('/parsing/pdf_parsing'); ?>">Pdf Parsing</a> </li>
-            <li> <a href="<?php echo url('/parsing/image_parsing'); ?>">Image Parsing</a> </li>
-            <li>
-            </ul>
-          </li>-->
+            <li> <a href="#" data-toggle="modal" data-target=".bs-example-modal-sm">Alert 1 </a> </li>
+            <li> <a href="#" data-toggle="modal" data-target=".alert2">Alert 2 </a> </li>
+          </ul>
+        </li>
+      <!-- <li > <a href="#"> <i class="icon-bar-chart"></i> <span class="title">Data Parsing</span> <span class="arrow "></span> </a>
+        <ul class="sub-menu">
+          <li> <a href="<?php echo url('/parsing/pdf_parsing'); ?>">Pdf Parsing</a> </li>
+          <li> <a href="<?php echo url('/parsing/image_parsing'); ?>">Image Parsing</a> </li>
         </ul>
-
-
-
+      </li> -->
+    </ul>
     <!-- END SIDEBAR MENU --> 
   </div>
 </div>

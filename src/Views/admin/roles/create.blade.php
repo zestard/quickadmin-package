@@ -4,7 +4,7 @@
 
     <div class="row">
         <div class="col-md-10 col-md-offset-2">
-            <h1>Create admin</h1>
+            <h1>Create Role</h1>
 
             @if ($errors->any())
                 <div class="alert alert-danger">

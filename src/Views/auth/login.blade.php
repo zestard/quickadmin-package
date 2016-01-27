@@ -84,13 +84,6 @@
         <h3>Request an account</h3>
         <p>Enter your personal details below:</p>
         <div class="form-group">
-            <label class="control-label visible-ie8 visible-ie9">Username</label>
-            <div class="input-icon">
-                <i class="fa fa-font"></i>
-                <input class="form-control placeholder-no-fix" type="text" placeholder="Username" name="name" value="{{ old('name') }}"/>
-            </div>
-        </div>
-        <div class="form-group">
             <label class="control-label visible-ie8 visible-ie9">First Name</label>
             <div class="input-icon">
                 <i class="fa fa-font"></i>

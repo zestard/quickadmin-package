@@ -35,16 +35,10 @@
             <div id="tab_0" class="tab-pane active"> @foreach ($errors->all() as $error)
               <p class="error">{{ $error }}</p>
               @endforeach
-              <form method="post" action='' id="user_form" name="add_user" role="form" enctype="multipart/form-data">
+              <form method="post" action='<?php echo url('users'); ?>' id="user_form" name="add_user" role="form" enctype="multipart/form-data">
                 <div class="row">
                   <div class="col-md-4 center_date">
                     <h3 class="essentitle">Essentials</h3>
-                    <div class="form-group">
-                      <label class="col-md-4 control-label">USER NAME&nbsp;<span class="star" style="color:red">*</span>&nbsp;:</label>
-                      <div class="col-md-8">
-                        <input type="text" value="" id="name" name="name" class="form-control" >
-                      </div>
-                    </div>
                     <div class="form-group">
                       <label class="col-md-4 control-label">FIRST NAME&nbsp;<span class="star" style="color:red">*</span>&nbsp;:</label>
                       <div class="col-md-8">
@@ -73,7 +67,13 @@
                     <div class="form-group">
                         {!! Form::label('role_id', 'Role :', ['class'=>'col-md-4 control-label']) !!}
                         <div class="col-md-8">
-                            {!! Form::select('role_id', $roles, old('role_id'), ['class'=>'form-control']) !!}
+                            {!! Form::select('role_id', $roles, old('role_id'), ['class'=>'form-control select2me']) !!}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('password', 'Password', ['class'=>'col-md-4 control-label']) !!}
+                        <div class="col-sm-8">
+                            {!! Form::password('password', ['class'=>'form-control', 'placeholder'=> 'Password']) !!}
                         </div>
                     </div>
                     <div class="form-group">
@@ -203,11 +203,11 @@
                       </div>
                     </div>
                     <!--<div class="form-group">
-                                            <label class="col-md-4 control-label">FAX:</label>
-                                            <div class="col-md-8">
-                                                <input type="text" class="form-control" id="vWebSiteUrl" name="vWebSiteUrl">
-                                            </div> 
-                                        </div>--> 
+                        <label class="col-md-4 control-label">FAX:</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="vWebSiteUrl" name="vWebSiteUrl">
+                        </div> 
+                    </div>--> 
                   </div>
                 </div>
                 <div style="float: right;">
@@ -220,6 +220,52 @@
         </div>
       </div>
     </div>
+
+@endsection
+
+
+@section('javascript')
+
+<script src="{{URL::asset('assets/scripts/add_user_tab_0_validations.js') }}" type="text/javascript"></script> 
+<script src="{{URL::asset('assets/scripts/user_details_search.js') }}" type="text/javascript"></script> 
+<script type="text/javascript" src="{{ URL::asset('assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script> 
+<script type="text/javascript" src="{{ URL::asset('assets/plugins/jquery_custom_cal/jsDatePick.min.1.3.js') }}"></script> 
+<script src="{{ URL::asset('assets/plugins/select2/select2.min.js') }}"></script> 
+
+<!-- END PAGE LEVEL SCRIPTS --> 
+<script>
+jQuery(document).ready(function () {
+    
+    $('select.select2me').select2({
+       placeholder: "Select",
+       allowclear: true     
+    });
+    
+    $.ajax
+    ({
+        url: public_url + '/user/get_states/' + $('#vCountry option:selected').val(),
+        success:function(result)
+        {
+            $('#vRegionDiv').html(result);
+            
+            if($().select2){
+                $('select.select2me').select2({
+                   placeholder: "Select",
+                   allowClear: true
+                });
+            }
+            
+            
+            $('#vRegion option[value="'+$('#selected_state_id').val()+'"]').prop('selected', 'selected');
+            $('#vRegion').trigger("change");
+        }              
+    });  
+    
+    $(".js-example-basic-multiple").select2();
+});
+</script> 
+
+@endsection
 
 <!-- 
     <div class="row">
@@ -277,5 +323,3 @@
     </div>
 
     {!! Form::close() !!} -->
-
-@endsection
