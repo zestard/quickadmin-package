@@ -156,9 +156,9 @@
                         <tr class = "odd gradeX">
                             <td><input type="checkbox" class="user_id_checkbox list_check_box" name="user_id[]" id="<?php echo $user->id; ?>" value="<?php echo $user->id; ?>"></td>
                             <td><i class="onlion-icon"></i></td>
-                            <td>{{ $user->name }}</td>
-
-                            <td></td>
+                            
+                            <td>{{ $user->first_name }}</td>
+                            <td>{{ $user->last_name }}</td>
                             <td></td>
                             <td></td>
                             <td>{{ isset($user->email) ? $user->email : ''}}</td>
@@ -166,10 +166,12 @@
                             <td></td>
 
                             <td>
+                              @if($user->id != Auth::user()->id)
                                 {!! link_to_route('users.edit', 'Edit', [$user->id], ['class' => 'btn btn-xs btn-info']) !!}
                                 {!! Form::open(['style' => 'display: inline-block;', 'method' => 'DELETE', 'onsubmit' => 'return confirm(\'' . 'Are you sure?' . '\');',  'route' => array('users.destroy', $user->id)]) !!}
                                 {!! Form::submit('Delete', array('class' => 'btn btn-xs btn-danger')) !!}
                                 {!! Form::close() !!}
+                              @endif
                             </td>
                         </tr>
                     @endforeach

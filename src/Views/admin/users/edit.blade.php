@@ -28,8 +28,10 @@
             <div id="tab_0" class="tab-pane active"> @foreach ($errors->all() as $error)
               <p class="error">{{ $error }}</p>
               @endforeach
-              <form method="post" action='' id="user_form" name="add_user" role="form" enctype="multipart/form-data">
+
+              <form method="post" action="<?php echo url('users', array('id' => $user->id)); ?>" id="user_form" name="add_user" role="form" enctype="multipart/form-data">
                 <input type="hidden" name="update_form" value="update_form">
+                <input name="_method" type="hidden" value="PATCH">
                 <input type="hidden" name="iUserId" id="iUserId" value="<?php echo $user->id; ?>">
                 <div class="row">
                   <div class="col-md-4 center_date">
@@ -225,7 +227,7 @@
 
 @section('javascript')
 
-<script src="{{URL::asset('assets/scripts/add_user_tab_0_validations.js') }}" type="text/javascript"></script> 
+<!-- <script src="{{URL::asset('assets/scripts/add_user_tab_0_validations.js') }}" type="text/javascript"></script>  -->
 <script src="{{URL::asset('assets/scripts/user_details_search.js') }}" type="text/javascript"></script> 
 <script type="text/javascript" src="{{ URL::asset('assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script> 
 <script type="text/javascript" src="{{ URL::asset('assets/plugins/jquery_custom_cal/jsDatePick.min.1.3.js') }}"></script> 
@@ -323,5 +325,3 @@ jQuery(document).ready(function () {
     </div>
 
     {!! Form::close() !!}
-
--->
