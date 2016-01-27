@@ -173,33 +173,3 @@
     </form>
 
 @endsection
-
-@section('javascript')
-
-    <!-- BEGIN PAGE LEVEL PLUGINS --> 
-    <script src="{{ URL::asset('assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}" type="text/javascript"></script> 
-    <script src="{{ URL::asset('assets/plugins/ion.rangeslider/js/ion-rangeSlider/ion.rangeSlider.min.js') }}"></script> 
-    <script type="text/javascript" src="{{ URL::asset('assets/scripts/all_checked_validations.js') }}"></script> 
-
-    <!-- END PAGE LEVEL PLUGINS --> 
-    <!-- BEGIN PAGE LEVEL SCRIPTS --> 
-    <script src="{{ URL::asset('assets/scripts/app.js') }}"></script> 
-    <script src="{{ URL::asset('assets/scripts/vacancy_search.js') }}"></script> 
-    <script src="{{ URL::asset('assets/scripts/ui-ion-sliders.js') }}"></script> 
-    <script type="text/javascript" src="{{ URL::asset('assets/plugins/datatables/media/js/jquery.dataTables.min.js') }}"></script> 
-    <script type="text/javascript" src="{{ URL::asset('assets/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js') }}"></script> 
-    <script type="text/javascript" src="{{ URL::asset('assets/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.min.js') }}"></script> 
-    <script type="text/javascript" src="{{ URL::asset('assets/plugins/datatables/extensions/ColReorder/js/dataTables.colReorder.min.js') }}"></script> 
-    <script type="text/javascript" src="{{ URL::asset('assets/plugins/datatables/extensions/Scroller/js/dataTables.scroller.min.js') }}"></script> 
-    <!-- END PAGE LEVEL SCRIPTS --> 
-
-    <script>
-    $(document).ready(function () {
-        // initiate layout and plugins
-        App.init();
-        UIIonSliders.init();
-    });
-    </script> 
-    <!-- END JAVASCRIPTS --> 
-
-@endsection

@@ -20,6 +20,8 @@
 	</div>
 </div>
 <!-- END FOOTER -->
+
+@include('admin.dashboard.page_js')
 <script>
     $(document).ready(function ()
     {

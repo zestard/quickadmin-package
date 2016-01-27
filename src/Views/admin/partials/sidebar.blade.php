@@ -4,12 +4,17 @@
   <div class="page-sidebar navbar-collapse collapse"> 
     <!-- BEGIN SIDEBAR MENU --> 
     <!-- DOC: for circle icon style menu apply page-sidebar-menu-circle-icons class right after sidebar-toggler-wrapper -->
-    <ul class="page-sidebar-menu">
+
+        <ul class="page-sidebar-menu">
       <li class="sidebar-toggler-wrapper"> 
+        <!-- BEGIN SIDEBAR TOGGLER BUTTON --> 
         <!-- Small modal -->
+        
         <button type="button" class="sidebar-toggler navbarleftbt"> </button>
-        <!--<div class="sidebar-toggler"></div>-->
+        
+        <!--                <div class="sidebar-toggler"></div>-->
         <div class="clearfix"></div>
+        <!-- BEGIN SIDEBAR TOGGLER BUTTON --> 
       </li>
       <li class="sidebar-search-wrapper">
         <form class="search-form" role="form" action="index.html" method="get">
@@ -18,75 +23,102 @@
           </div>
         </form>
       </li>
-        @if(Auth::user()->role_id == config('quickadmin.defaultRole'))
-            <!-- <li @if(Request::path() == config('quickadmin.route').'/menu') class="active" @endif>
-                <a href="{{ url(config('quickadmin.route').'/menu') }}">
-                    <i class="fa fa-list"></i>
-                    <span class="title">Menu</span>
-                </a>
-            </li> -->
+      <li class="start"> <a href="<?php echo url('/home'); ?>"> <i class="icon-home"></i> <span class="title">Dashboard</span> <span class="selected"></span> </a> </li>
+      <li > <a href="<?php echo url('/calendar'); ?>"> <i class="icon-calendar"></i> <span class="title">Calendar</span> </a> </li>
+      <li > <a href=""> <i class="fa fa-comment-o"></i> <span class="title">Message</span> <span class="arrow "></span> </a>
+        <ul class="sub-menu">
+          <li> <a href="<?php echo url('/message'); ?>"> Messages</a> </li>
+        </ul>
+      </li>
+      <li > <a href=""> <i class="icon-users"></i> <span class="title">People</span> <span class="arrow "></span> </a>
+        <ul class="sub-menu">
+          <li> <a href="<?php echo url('/person'); ?>"> All</a> </li>
+          <li> <a href="#"> Temporary Candidates</a> </li>
+          <li> <a href="#"> Permanent Candidates</a> </li>
+          <li> <a href="#"> High Value Candidates</a> </li>
+          <li> <a href="#"> New Applicants</a> </li>
+          <li> <a href="#"> Client Contacts</a> </li>
+        </ul>
+      </li>
+      <li> <a href=""> <i class="icon-briefcase"></i> <span class="title">Companies</span> <span class="arrow "></span> </a>
+        <ul class="sub-menu">
+          <li> <a href="<?php echo url('/company'); ?>"> List Of Companies</a> </li>
+          <li> <a href="<?php echo url('/company/add_company'); ?>"> Add Company</a> </li>
+        </ul>
+      </li>
+      <li > <a href="#"> <i class="icon-user"></i> <span class="title">Vacancy</span> <span class="arrow "></span> </a>
+        <ul class="sub-menu">
+          <li> <a href="<?php echo url('/vacancy'); ?>"> List of Vacancies </a> </li>
+          <li> <a href="<?php echo url('/vacancy/add_vacancy'); ?>"> Add Vacancy</a> </li>
+          <li> <a href="#"> Temp Vacancies</a> </li>
+          <li> <a href="#"> Perm Vacancies</a> </li>
+        </ul>
+      </li>
+      <li > <a href="#"> <i class="icon-clock"></i> <span class="title">Timesheets</span> <span class="arrow "></span> </a>
+        <ul class="sub-menu">
+          <li> <a href="<?php echo url('/timesheet/add_timesheet_detail'); ?>"> Add TimeSheet </a> <a href="<?php echo url('/timesheet/timesheet_image_process'); ?>"> TimeSheet Image Process </a> </li>
+        </ul>
+      </li>
+      <li @if(Request::path() == 'users' || Request::path() == 'users/create') class="active open" @endif>
+        <a href="#"> <i class="icon-users"></i> <span class="title">User</span> <span class="arrow open"></span> </a>
+        <ul class="sub-menu">
+          <li> <a href="{{ url('users') }}"> List of User </a> </li>
+          <li> <a href="{{ url('users/create') }}"> Add User </a> </li>
+        </ul>
+      </li>
 
-            <li @if(Request::path() == 'users') class="active" @endif>
-              <a href="#"> <i class="icon-users"></i> <span class="title">User</span> <span class="arrow "></span> </a>
-              <ul class="sub-menu">
-                <li> <a href="{{ url('users') }}"> List of User </a> </li>
-                <li> <a href="{{ url('users/create') }}"> Add User </a> </li>
-              </ul>
-            </li>
+      <li @if(Request::path() == 'roles' || Request::path() == 'roles/create') class="active open" @endif>
+        <a href="#"> <i class="fa fa-users"></i> <span class="title">Role</span> <span class="arrow open"></span> </a>
+        <ul class="sub-menu">
+          <li> <a href="{{ url('roles') }}"> List of Roles </a> </li>
+          <li> <a href="{{ url('roles/create') }}"> Add Role </a> </li>
+        </ul>
+      </li>
+      <li > <a href="#"> <i class="icon-graph"></i> <span class="title">Accounting</span> </a> </li>
+      <li > <a href="#"> <i class="icon-wrench"></i> <span class="title">Tools</span> <span class="arrow "></span> </a>
+        <ul class="sub-menu">
+          <li> <a href="<?php echo url('/tools/highlighter'); ?>"> Highlighter</a> </li>
+          <li> <a href="<?php echo url('/tools/parsing_response'); ?>"> Parsing Response</a> </li>
+          <li>
+          </ul>
+        </li>
+        <li > <a href="#"> <i class="icon-bar-chart"></i> <span class="title">Reports</span> <span class="arrow "></span> </a>
+          <ul class="sub-menu">
+            <li> <a href="<?php echo url('/reports/crm_report'); ?>"> CRM Report</a> </li>
+            <li> <a href="<?php echo url('/reports/analytics'); ?>"> Analytics</a> </li>
+            <li>
+            </ul>
+          </li>
+          <!-- <li>
+            <a href="<?php echo url('/cms'); ?>">
+                <i class="icon-list"></i>
+                <span class="title">CMS</span>
+                <span class="arrow "></span>
+            </a>
+          </li> -->
+          <li> <a href="#"> <i class="icon-pin"></i> <span class="title">Saved Searches</span> </a> </li>
+          <li> <a href="#"> <i class="icon-wrench"></i> <span class="title">Settings</span> <span class="arrow "></span> </a>
+            <ul class="sub-menu">
+              <li> <a href="<?php echo url('/system_settings/index'); ?>"> System Settings </a> </li>
+            </ul>
+          </li>
+          <li class="last"> <a href="#"> <i class="glyphicon glyphicon-bell"></i> <span class="title">PopUp</span> <span class="arrow "></span> </a>
+            <ul class="sub-menu">
+              <li> <a href="#" data-toggle="modal" data-target=".bs-example-modal-sm">Alert 1 </a> </li>
+              <li> <a href="#" data-toggle="modal" data-target=".alert2">Alert 2 </a> </li>
+            </ul>
+          </li>
+<!--          <li > <a href="#"> <i class="icon-bar-chart"></i> <span class="title">Data Parsing</span> <span class="arrow "></span> </a>
+          <ul class="sub-menu">
+            <li> <a href="<?php echo url('/parsing/pdf_parsing'); ?>">Pdf Parsing</a> </li>
+            <li> <a href="<?php echo url('/parsing/image_parsing'); ?>">Image Parsing</a> </li>
+            <li>
+            </ul>
+          </li>-->
+        </ul>
 
-            <li @if(Request::path() == 'roles') class="active" @endif>
-              <a href="#"> <i class="fa fa-users"></i> <span class="title">Role</span> <span class="arrow "></span> </a>
-              <ul class="sub-menu">
-                <li> <a href="{{ url('roles') }}"> List of Roles </a> </li>
-                <li> <a href="{{ url('roles/create') }}"> Add Role </a> </li>
-              </ul>
-            </li>
 
-            <!-- <li @if(Request::path() == config('quickadmin.route').'/actions') class="active" @endif>
-                <a href="{{ url(config('quickadmin.route').'/actions') }}">
-                    <i class="fa fa-users"></i>
-                    <span class="title">User actions</span>
-                </a>
-            </li> -->
-        @endif
-        @foreach($menus as $menu)
-            @if($menu->menu_type != 2 && is_null($menu->parent_id))
-                @if(in_array(Auth::user()->role_id, explode(',',$menu->roles)))
-                    <li @if(isset(explode('/',Request::path())[1]) && explode('/',Request::path())[1] == strtolower($menu->name)) class="active" @endif>
-                        <a href="{{ route(config('quickadmin.route').'.'.strtolower($menu->name).'.index') }}">
-                            <i class="fa {{ $menu->icon }}"></i>
-                            <span class="title">{{ $menu->title }}</span>
-                        </a>
-                    </li>
-                @endif
-            @else
-                @if(in_array(Auth::user()->role_id, explode(',',$menu->roles)) && !is_null($menu->children()->first()) && is_null($menu->parent_id))
-                    <li>
-                        <a href="#">
-                            <i class="fa {{ $menu->icon }}"></i>
-                            <span class="title">{{ $menu->title }}</span>
-                            <span class="fa arrow"></span>
-                        </a>
-                        <ul class="sub-menu">
-                            @foreach($menu['children'] as $child)
-                                @if(in_array(Auth::user()->role_id, explode(',',$child->roles)))
-                                    <li
-                                            @if(isset(explode('/',Request::path())[1]) && explode('/',Request::path())[1] == strtolower($child->name)) class="active active-sub" @endif>
-                                        <a href="{{ route(config('quickadmin.route').'.'.strtolower($child->name).'.index') }}">
-                                            <i class="fa {{ $child->icon }}"></i>
-                                    <span class="title">
-                                        {{ $child->title  }}
-                                    </span>
-                                        </a>
-                                    </li>
-                                @endif
-                            @endforeach
-                        </ul>
-                    </li>
-                @endif
-            @endif
-        @endforeach
-    </ul>
+
     <!-- END SIDEBAR MENU --> 
   </div>
 </div>

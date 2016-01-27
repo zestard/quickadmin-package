@@ -38,5 +38,3 @@
     {!! Form::close() !!}
 
 @endsection
-
-

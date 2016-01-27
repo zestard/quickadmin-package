@@ -1,4 +1,5 @@
 @extends('admin.layouts.master')
+@include('admin.dashboard.page_css')  
 
 @section('content')
  
