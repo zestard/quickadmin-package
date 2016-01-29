@@ -21,9 +21,9 @@ class CreateUserOverviewTable extends Migration
             $table->string('vSendInvite', 100);
             $table->string('vImage', 50);
             $table->string('vJobTitle', 50);
-            $table->bigInteger('iOfficePhone', 15);
-            $table->bigInteger('iMobilePhone', 15);
-            $table->bigInteger('iHomePhone', 15);
+            $table->bigInteger('iOfficePhone');
+            $table->bigInteger('iMobilePhone');
+            $table->bigInteger('iHomePhone');
             $table->string('vFax', 50);
             $table->string('vAltEmail1', 50);
             $table->string('vAltEmail2', 50);
@@ -34,7 +34,7 @@ class CreateUserOverviewTable extends Migration
             $table->string('vCountry', 50);
             $table->string('vRegion', 50);
             $table->string('vArea', 50);
-            $table->bigInteger('iTelephoneNumber', 15);
+            $table->bigInteger('iTelephoneNumber');
         });
     }
 
