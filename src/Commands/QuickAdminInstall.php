@@ -65,6 +65,8 @@ class QuickAdminInstall extends Command
             database_path('migrations' . DIRECTORY_SEPARATOR . '2015_12_11_000000_create_users_logs_table.php'));
         copy(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'Migrations' . DIRECTORY_SEPARATOR . '2016_01_25_063913_alter_users_table_remove_name_add_first_name_last_name',
             database_path('migrations' . DIRECTORY_SEPARATOR . '2016_01_25_063913_alter_users_table_remove_name_add_first_name_last_name.php'));
+        copy(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'Migrations' . DIRECTORY_SEPARATOR . '2016_01_29_072736_create_user_overview_table',
+            database_path('migrations' . DIRECTORY_SEPARATOR . '2016_01_29_072736_create_user_overview_table.php'));
         copy(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'Models' . DIRECTORY_SEPARATOR . 'publish' . DIRECTORY_SEPARATOR . 'User',
             app_path('User.php'));
         $this->info('Migrations were transferred successfully');

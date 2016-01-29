@@ -1,0 +1,50 @@
+<?php
+
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateUserOverviewTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('user_overview', function (Blueprint $table) {
+            $table->increments('iUserId');
+            $table->string('vFirstName', 35);
+            $table->string('vLastName', 35);
+            $table->string('vEmail', 50);
+            $table->string('vCompany', 35);
+            $table->string('vSendInvite', 100);
+            $table->string('vImage', 50);
+            $table->string('vJobTitle', 50);
+            $table->bigInteger('iOfficePhone', 15);
+            $table->bigInteger('iMobilePhone', 15);
+            $table->bigInteger('iHomePhone', 15);
+            $table->string('vFax', 50);
+            $table->string('vAltEmail1', 50);
+            $table->string('vAltEmail2', 50);
+            $table->string('vAltEmail3', 50);
+            $table->string('vOpenId', 50);
+            $table->text('tAddress');
+            $table->string('vPostcode', 15);
+            $table->string('vCountry', 50);
+            $table->string('vRegion', 50);
+            $table->string('vArea', 50);
+            $table->bigInteger('iTelephoneNumber', 15);
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop('user_overview');
+    }
+}
