@@ -166,12 +166,12 @@
                             <td></td>
 
                             <td>
-                              @if($user->id != Auth::user()->id)
+                              {{-- @if($user->id != Auth::user()->id) --}}
                                 {!! link_to_route('users.edit', 'Edit', [$user->id], ['class' => 'btn btn-xs btn-info']) !!}
                                 {!! Form::open(['style' => 'display: inline-block;', 'method' => 'DELETE', 'onsubmit' => 'return confirm(\'' . 'Are you sure?' . '\');',  'route' => array('users.destroy', $user->id)]) !!}
                                 {!! Form::submit('Delete', array('class' => 'btn btn-xs btn-danger')) !!}
                                 {!! Form::close() !!}
-                              @endif
+                              {{-- @endif --}}
                             </td>
                         </tr>
                     @endforeach
